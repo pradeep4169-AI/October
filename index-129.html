@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>High Octane October – WRP Contest Coach</title>
+<style>
+:root{--bg:#0a1230;--bg2:#13204f;--glass:rgba(255,255,255,.07);--line:rgba(245,196,81,.28);--gold:#f5c451;--gold2:#b8851f;--tx:#f4f6ff;--mu:#9fabd6;--ok:#3ddc97;--warn:#ffb340;--bad:#ff7b7b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 500px at 50% -10%,#24357a 0,transparent 60%),var(--bg);color:var(--tx);font:15px/1.45 "Trebuchet MS","Segoe UI",system-ui,sans-serif;min-height:100vh}
+.wrap{max-width:1060px;margin:0 auto;padding:14px}
+h1{font:700 clamp(26px,6vw,44px)/1.05 Georgia,"Times New Roman",serif;margin:0;background:linear-gradient(180deg,#fff0b8,var(--gold) 55%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.5px}
+.hero{text-align:center;padding:14px 0 6px}
+.hero p{margin:6px 0 0;color:var(--mu)}
+.tag{font-style:italic;color:#fff;opacity:.92}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:860px){.grid{grid-template-columns:380px 1fr}.sticky{position:sticky;top:12px;align-self:start}}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:14px;backdrop-filter:blur(8px)}
+.card.w{background:#fff;color:#12204a;border-color:#fff}
+.card.w .mu{color:#59668f}
+label{display:block;font-size:12px;color:var(--mu);margin:10px 0 4px}
+input,select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0c1740;color:var(--tx);font:inherit;min-height:44px}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+#biz{font-size:26px;font-weight:700;color:var(--gold);text-align:center;padding:14px}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;min-height:44px;border-radius:10px;border:1px solid var(--line);background:#0c1740;color:var(--tx);font:inherit;font-weight:600;cursor:pointer}
+.seg button.on{background:linear-gradient(180deg,#ffe08a,var(--gold2));color:#2a1c00;border-color:var(--gold)}
+.seg button.en.on{background:linear-gradient(180deg,#6df0b4,#1f9d68);color:#032a18}
+.big{font:700 clamp(46px,13vw,84px)/1 Georgia,serif;color:var(--gold);text-align:center;text-shadow:0 0 28px rgba(245,196,81,.55);margin:2px 0}
+.big.glow{animation:pulse 1.6s ease-in-out 3}
+@keyframes pulse{50%{text-shadow:0 0 60px rgba(255,224,138,.95),0 0 12px #fff}}
+.c{text-align:center}.mu{color:var(--mu)}.sm{font-size:12.5px}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:620px){.row.f4{grid-template-columns:repeat(4,1fr)}}
+.q{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:0}
+.q b{display:block;font-size:17px;color:#fff;word-break:break-word}.q span{font-size:11.5px;color:var(--mu)}
+.bar{height:16px;background:#0c1740;border-radius:99px;overflow:hidden;border:1px solid var(--line);margin:8px 0 4px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold2),#ffe08a,var(--gold));transition:width .9s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 14px var(--gold)}
+.win{background:linear-gradient(135deg,rgba(61,220,151,.16),rgba(245,196,81,.16));border:1px solid var(--gold);border-radius:14px;padding:12px;text-align:center;margin:8px 0}
+.go{background:rgba(255,179,64,.1);border:1px dashed var(--warn);border-radius:14px;padding:12px;text-align:center;margin:8px 0}
+.hl{font-size:19px;font-weight:700;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 5px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}th{color:var(--mu);font-weight:600}
+.t-ok{color:var(--ok)}.t-w{color:var(--warn)}.t-b{color:var(--bad)}
+.tw{overflow-x:auto}
+details{margin-top:10px}summary{cursor:pointer;font-weight:700;color:var(--gold);min-height:32px}
+.btn{width:100%;min-height:46px;border:0;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;background:linear-gradient(180deg,#ffe08a,var(--gold2));color:#2a1c00;margin-top:8px}
+.btn.g{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.cmp{display:flex;justify-content:space-between;gap:8px;padding:9px 6px;border-bottom:1px solid rgba(255,255,255,.1);cursor:pointer;min-height:40px}
+.cmp:hover{background:rgba(245,196,81,.1)}
+.flag{background:rgba(255,123,123,.1);border:1px solid var(--bad);border-radius:10px;padding:8px 10px;margin-top:8px;font-size:13px}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:9}
+.hide{display:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><canvas id="cf"></canvas>
+<div class="wrap">
+<div class="hero"><h1>🔥 HIGH OCTANE OCTOBER</h1><p class="tag">Turn every sale into a qualification.</p><p class="sm">Enter your business. See your WRP. Unlock your reward.</p></div>
+<div class="grid">
+<div class="sticky">
+<div class="card">
+<label for="role">Step 1 · Category</label>
+<select id="role"><option value="ADV">Advisor</option><option value="BAS">BA Self</option><option value="ABA">ABA / Business Associate</option></select>
+<label>Step 2 · Contest <span class="mu">(Oct 2026)</span></label>
+<div class="seg" id="ct"><button data-c="early">🔥 Early Bird<br><span class="sm">1–10 Oct</span></button><button data-c="main" class="on">🏆 Main Contest<br><span class="sm">1–31 Oct</span></button></div>
+<div id="vtw"><label for="vint">Advisor vintage</label><select id="vint"><option value="M0">M0–M11</option><option value="M12">M12 &amp; Above</option></select></div>
+<label for="plan">Which plan have you sold?</label>
+<input id="plan" list="pl" placeholder="Search plan…" autocomplete="off"><datalist id="pl"></datalist>
+<div id="perr" class="flag hide">WRP weightage not available in campaign master — please select the correct plan.</div>
+<label for="biz">Enter business amount (base premium / APE)</label>
+<input id="biz" inputmode="decimal" placeholder="₹50,000 or 2.5 lakh" autocomplete="off">
+<label for="rid">Any rider attached?</label>
+<select id="rid"><option value="0">No rider</option><option value="200">1 Rider – ADD / TPD / WOP Option 1 &amp; 2 (200%)</option><option value="300a">1 Rider – WOP Option 3 (300%)</option><option value="300b">3 Riders (300%)</option></select>
+<div id="raw" class="hide"><label for="rape">Rider premium (Rider APE)</label><input id="rape" inputmode="decimal" placeholder="₹5,000"></div>
+<label>Payment mode</label>
+<div class="seg" id="en"><button data-e="1" class="en on">🟢 100% E-NACH</button><button data-e="0">⚪ Without E-NACH</button></div>
+<button class="btn g" id="chg">🔄 Change plan &amp; recalculate</button>
+</div></div>
+<div id="out"></div>
+</div>
+<div class="card" style="margin-top:12px"><details><summary>Data notes &amp; items flagged for configuration</summary>
+<div class="flag">Source slides label no “Q1–Q6”. The tracker numbers the contest slabs in order for the selected view (Advisor 8 levels, BA 4 levels), so Q6 exists only for Advisor (₹5L). Edit <code>QMAP</code> in the file to change.</div>
+<div class="flag">Calendar slide says Main Contest “6L E-NACH | 10L w/o E-NACH”, which does not match the slab slides. Slab slides are used.</div>
+<div class="flag">G Pen 2 Pay and SRP: 0% for monthly R&amp;R, 100% for annual R&amp;R. High Octane is a monthly contest, so both are listed separately; pick the one HO leadership confirms.</div>
+<div class="flag">T&amp;C: BA Self &amp; ABA business is weighted 50% for R&amp;R “for Employees”. Not applied (employee flag not in the master). WRP is computed on First Issue Date. Management may change rules at any time.</div>
+<p class="sm mu">All rates, slabs and rewards live in the <code>MASTER</code> object at the top of the script.</p></details></div>
+</div>
+<script>
+const L=1e5;
+// ===== MASTER (edit here for campaign changes) =====
+const MASTER={
+dates:{early:["2026-10-01","2026-10-10"],main:["2026-10-01","2026-10-31"]},
+// [name, category, advisor R&R %, distributor R&R %, note]
+products:[
+["LGIP – Whole Life","Par",150,150],["LGIP – Definite","Par",150,150],
+["AIM Immediate ≥10 Pay – Income Plus Option Immediate PT40","Par",100,100],
+["AIM Immediate ≥10 Pay – Income Enhanced Maturity Immediate PT20/30","Par",100,100],
+["AIM Immediate ≥10 Pay – Other combinations","Par",75,75],["AIM Deferred ≥10 Pay","Par",150,150],
+["TULIP ≥10 PPT","ULIP",75,75],["TULIP <10 PPT","ULIP",50,50],["Smart Pay ≥15 PPT","Non-Par",100,100],
+["RSIP Single Pay","ULIP",0,0,"0% credit"],["RSIP Limited Pay & Regular Pay","ULIP",10,10],
+["GBP ≥10 PPT","Par",150,150],["G Pen 10 Pay","Annuity",150,150],["G Pen 7/8/9 Pay","Annuity",100,100],["G Pen 5/6 Pay","Annuity",75,75],
+["G Pen 2 Pay – Monthly R&R","Annuity",0,0,"0% credit (monthly R&R)"],["G Pen 2 Pay – Annual R&R","Annuity",100,100],
+["GOLD","Par",100,100],["Other Single Pay","Single",10,10],["Gold Plus","Par",75,75],["Gold Term","Term",150,150],["SPP","Par",200,200],
+["SRP – Monthly R&R","ULIP",0,0,"0% credit (monthly R&R)"],["SRP – Annual R&R","ULIP",100,100],
+["Other Par","Par",75,75],["Other Non-Par","Non-Par",75,75],["Other Term","Term",100,100],["Other ULIP ≥10 PPT","ULIP",50,50],["Other ULIP <10 PPT","ULIP",25,25]],
+riders:{"0":0,"200":200,"300a":300,"300b":300},
+// [WRP, reward with E-NACH, reward w/o E-NACH]
+slabs:{
+ADV:[[3e4,"Laptop Case","Mobile Stand"],[6e4,"Power Bank","Electric Kettle"],[1e5,"Milton Induction","Smart Watch"],[1.5e5,"LG Microwave Oven","Philips Airfryer"],[3e5,"Zonal Convention + 3K","Zonal Convention"],[5e5,"Pattaya","Zonal Convention + 15K"],[8e5,"Pattaya + 20K","Pattaya + 5K"],[12e5,"Pattaya (2 Seats)","Pattaya + 30K"]],
+M12:[[3e4,"Laptop Case + 300","Mobile Stand + 300"],[6e4,"Power Bank + 600","Electric Kettle + 600"],[1e5,"Milton Induction + 1000","Smart Watch + 1000"],[1.5e5,"LG Microwave Oven + 1500","Philips Airfryer + 1500"],[3e5,"Zonal Convention + 6K","Zonal Convention + 3K"],[5e5,"Pattaya + 5K","Zonal Convention + 20K"],[8e5,"Pattaya + 28K","Pattaya + 13K"],[12e5,"Pattaya (2 Seats) + 12K","Pattaya + 42K"]],
+BA:[[3e5,"Zonal Convention + 3K","Zonal Convention"],[5e5,"Pattaya","Zonal Convention + 15K"],[8e5,"Pattaya + 20K","Pattaya + 5K"],[12e5,"Pattaya (2 Seats)","Pattaya + 30K"]],
+EB:{E:[[3.5e5,"Pattaya (1 Seat)"],[8e5,"Pattaya (2 Seats)"]],N:[[5e5,"Pattaya (1 Seat)"],[10e5,"Pattaya (2 Seats)"]]}}};
+const QMAP=null; // null = slabs numbered Q1..Qn in order
+// ===== helpers =====
+const $=id=>document.getElementById(id),S={c:"main",e:1};
+const Rs=v=>"₹"+Math.round(v).toLocaleString("en-IN");
+const Lk=v=>{let s=(v/L).toFixed(2).replace(/\.00$/,"").replace(/(\.\d)0$/,"$1");return "₹"+s+" Lakh"};
+function pa(s){s=(s||"").toLowerCase().replace(/[₹,\s]/g,"");const m=s.match(/^(\d*\.?\d+)(l|lac|lacs|lakh|lakhs|cr|crore|k)?$/);if(!m)return 0;let v=parseFloat(m[1]),u=m[2];if(u){if(u[0]=="l")v*=L;else if(u[0]=="c")v*=1e7;else v*=1e3}return v}
+const seats=r=>/2 Seats/.test(r)?2:/Pattaya/.test(r)?1:0;
+function slabsFor(role,c,vint,en){
+ if(c=="early")return MASTER.slabs.EB[en?"E":"N"].map(x=>({w:x[0],r:x[1]}));
+ const k=role=="ADV"?(vint=="M12"?"M12":"ADV"):"BA";
+ return MASTER.slabs[k].map(x=>({w:x[0],r:en?x[1]:x[2]}))}
+const prod=()=>{const n=$("plan").value.trim().toLowerCase();return MASTER.products.find(p=>p[0].toLowerCase()==n)};
+const wOf=(p,role)=>role=="ADV"?p[2]:p[3];
+function calc(role,c,vint,en,p,biz,rAPE,rw){
+ const w=wOf(p,role),base=biz*w/100,rr=rAPE*rw/100,tot=base+rr,sl=slabsFor(role,c,vint,en);
+ let a=-1;sl.forEach((s,i)=>{if(tot>=s.w-1e-9)a=i});
+ const nx=sl[a+1]||null,sh=nx?nx.w-tot:0;
+ return{w,base,rr,tot,sl,a,nx,sh,req:nx&&w>0?Math.ceil(sh/w*100):null,pct:nx?Math.min(100,tot/nx.w*100):100}}
+const needTxt=(r,w)=>w>0?Rs(r):"n/a – plan gives 0% credit";
+// ===== render =====
+let lastKey="";
+function render(){
+ const role=$("role").value,vint=$("vint").value,p=prod(),biz=pa($("biz").value);
+ $("vtw").classList.toggle("hide",!(role=="ADV"&&S.c=="main"));
+ const rk=$("rid").value,rw=MASTER.riders[rk];$("raw").classList.toggle("hide",!rw);
+ const rAPE=rw?pa($("rape").value):0;
+ $("perr").classList.toggle("hide",!($("plan").value.trim()&&!p));
+ const o=$("out");
+ if(!p){o.innerHTML=`<div class="card c"><div class="mu">YOUR WRP</div><div class="big">₹0</div><div class="hl">Start your journey 🚀</div><p class="mu">Pick the plan you sold and enter the business amount. WRP, qualification, reward and the business needed for the next level appear here automatically.</p></div>`;return}
+ const r=calc(role,S.c,vint,S.e,p,biz,rAPE,rw),sl=r.sl,top=sl[r.a];
+ const ach=r.a>=0,key=[role,S.c,S.e,vint,r.a].join();
+ const rl={ADV:"Advisor",BAS:"BA Self",ABA:"ABA"}[role];
+ // best of early/main
+ let both="";
+ if(role){const eb=calc(role,"early",vint,S.e,p,biz,rAPE,rw),mn=calc(role,"main",vint,S.e,p,biz,rAPE,rw);
+  if(eb.a>=0&&mn.a>=0){const er=eb.sl[eb.a].r,mr=mn.sl[mn.a].r,best=seats(er)>seats(mr)?er:mr;
+  both=`<div class="win sm">Early Bird <b>${er}</b> and Main <b>${mr}</b> both achieved → the <b>higher reward applies: ${best}</b></div>`}}
+ const nextBlock=r.nx?`<div class="${ach?"win":"go"}" style="margin-top:10px"><div class="mu sm">NEXT LEVEL 🚀</div><div class="hl">${Rs(r.nx.w)} WRP · ${r.nx.r}</div>
+  <div class="row" style="margin-top:8px"><div class="q"><span>Shortfall</span><b>${Rs(r.sh)} WRP</b></div><div class="q"><span>Business required</span><b>${needTxt(r.req,r.w)}</b></div></div>
+  <p class="sm" style="margin:8px 0 0">${r.w>0?`Sell about <b>${Rs(r.req)}</b> of this plan (${r.w}% credit) to unlock the next qualification.`:"This plan earns 0% WRP. Choose another plan to move forward."}</p></div>`
+  :`<div class="win"><div class="hl">🏆 Top slab achieved!</div><div class="sm">You have reached the highest level in this view.</div></div>`;
+ const hero=ach?`<div class="win"><div style="font-size:30px">🎉 🏆 🎊</div><div class="hl">CONGRATULATIONS! QUALIFICATION UNLOCKED</div><div class="mu sm">${rl} · ${S.c=="early"?"Early Bird":"Main Contest"} · ${S.e?"100% E-NACH":"Without E-NACH"}</div>
+  <div class="hl" style="color:var(--gold);margin-top:6px">🎁 ${top.r}</div><div class="sm">${Lk(top.w)} qualification${S.c=="early"?" · "+seats(top.r)+" seat"+(seats(top.r)>1?"s":""):""}</div></div>`
+  :`<div class="go"><div class="hl">🚀 YOUR JOURNEY STARTS HERE</div><div class="sm">${r.nx?`Just ${Rs(r.sh)} WRP more to unlock ${r.nx.r}.`:""}</div></div>`;
+ const bar=r.nx?`<div class="sm mu">NEXT REWARD · ${Rs(r.nx.w)} WRP</div><div class="bar"><i id="pb"></i></div><div class="sm"><b>${Math.floor(r.pct)}%</b> · Current ${Rs(r.tot)} · Balance ${Rs(r.sh)}</div>`:`<div class="bar"><i style="width:100%"></i></div>`;
+ // Q tracker
+ const q6=sl[5];
+ const qrows=sl.map((s,i)=>{const st=i<=r.a?'<span class="t-ok">🟢 Completed</span>':i==r.a+1?'<span class="t-w">🟡 In progress</span>':'<span class="t-b">🔴 Not reached</span>';
+  const sh=Math.max(0,s.w-r.tot);return`<tr><td>Q${i+1}</td><td>${Rs(s.w)}</td><td>${Rs(r.tot)}</td><td>${st}</td><td>${sh?Rs(sh):"–"}</td></tr>`}).join("");
+ const lastS=sl[sl.length-1],qn=q6||lastS,qi=q6?6:sl.length,qsh=Math.max(0,qn.w-r.tot);
+ const q6b=`<div class="go"><div class="hl">${q6?"Q6 SHORTFALL":"Q6 not defined in this view – highest level Q"+qi+" shown"}</div><div class="row f4" style="margin-top:6px"><div class="q"><span>Required WRP</span><b>${Rs(qn.w)}</b></div><div class="q"><span>Current WRP</span><b>${Rs(r.tot)}</b></div><div class="q"><span>Shortfall</span><b>${qsh?Rs(qsh):"None 🎉"}</b></div><div class="q"><span>Business to close</span><b>${qsh?needTxt(Math.ceil(qsh/r.w*100||0),r.w):"–"}</b></div></div></div>`;
+ // compare
+ const cmp=MASTER.products.map(x=>({n:x[0],v:biz*wOf(x,role)/100,w:wOf(x,role)})).sort((a,b)=>b.v-a.v).map(x=>`<div class="cmp" data-p="${x.n.replace(/"/g,"&quot;")}"><span>${x.n} <span class="mu">(${x.w}%)</span></span><b>${Rs(x.v)}</b></div>`).join("");
+ // side-by-side
+ const sv=(rr,t)=>{const x=calc(rr,"main",vint,S.e,p,biz,rAPE,rw);return`<div class="q"><b>${t}</b><span>WRP ${Rs(x.tot)} (${x.w}%)</span><br><span>Qualification: ${x.a>=0?Lk(x.sl[x.a].w):"Not yet"}</span><br><span>Reward: ${x.a>=0?x.sl[x.a].r:"–"}</span><br><span>Next: ${x.nx?Lk(x.nx.w):"Top"} · Short ${x.nx?Rs(x.sh):"–"}</span></div>`};
+ o.innerHTML=`<div class="card"><div class="c mu">YOUR WRP · ${rl}</div><div class="big ${ach&&key!=lastKey?"glow":""}">${Rs(r.tot)}</div>
+  <div class="c sm mu">Business ${Rs(biz)} × ${r.w}% = ${Rs(r.base)}${rw?` &nbsp;+&nbsp; Rider ${Rs(rAPE)} × ${rw}% = ${Rs(r.rr)}`:""}${p[4]?` · <span class="t-b">${p[4]}</span>`:""}</div>
+  ${hero}${nextBlock}${bar}${both}
+  <div class="row f4" style="margin-top:8px"><div class="q"><span>🏆 Current</span><b>${ach?Lk(top.w):"Not yet"}</b></div><div class="q"><span>🎯 Next target</span><b>${r.nx?Rs(r.nx.w):"Top level"}</b></div><div class="q"><span>⚡ Shortfall</span><b>${r.nx?Rs(r.sh):"None"}</b></div><div class="q"><span>🎁 Reward</span><b>${ach?top.r:"–"}</b></div></div>
+  <button class="btn" id="shr">📲 Share result</button></div>
+ <div class="card" style="margin-top:12px"><div class="hl">🏆 Q-level tracker</div><div class="tw"><table><tr><th>Level</th><th>Required</th><th>Achieved</th><th>Status</th><th>Shortfall</th></tr>${qrows}</table></div>${q6b}</div>
+ <div class="card" style="margin-top:12px"><div class="hl">➕ What if I sell more?</div><label for="more">Additional business (same plan)</label><input id="more" inputmode="decimal" placeholder="₹50,000" value="${$("more")?$("more").value:""}"><div id="mo" class="sm" style="margin-top:8px"></div></div>
+ <div class="card" style="margin-top:12px"><div class="hl">👥 Advisor view vs BA view <span class="sm mu">(Main Contest)</span></div><div class="row" style="margin-top:8px">${sv("ADV","Advisor")}${sv("BAS","BA Self / ABA")}</div></div>
+ <div class="card w" style="margin-top:12px"><details open><summary style="color:#12204a">🔄 Same ${Rs(biz)} across plans (${rl} weightage)</summary>${cmp}<p class="sm mu">Tap a plan to switch and recalculate.</p></details></div>`;
+ if(r.nx){requestAnimationFrame(()=>{const b=$("pb");if(b)b.style.width=r.pct+"%"})}
+ more(r,role,vint,p);
+ $("more").oninput=()=>more(r,role,vint,p);
+ $("shr").onclick=()=>share(rl,p,biz,r,top);
+ o.querySelectorAll(".cmp").forEach(e=>e.onclick=()=>{$("plan").value=e.dataset.p;render();scrollTo({top:0,behavior:"smooth"})});
+ if(ach&&key!=lastKey)boom();lastKey=key}
+function more(r,role,vint,p){
+ const m=pa($("more").value),el=$("mo");if(!m){el.innerHTML='<span class="mu">Enter extra business to see the new qualification.</span>';return}
+ const add=m*r.w/100,nt=r.tot+add;let a=-1;r.sl.forEach((s,i)=>{if(nt>=s.w-1e-9)a=i});const nx=r.sl[a+1];
+ el.innerHTML=`Current ${Rs(r.tot)} + ${Rs(add)} = <b class="hl">${Rs(nt)} WRP</b><br>New qualification: <b>${a>=0?Lk(r.sl[a].w)+" · "+r.sl[a].r:"Not yet"}</b>${nx?`<br>Still ${Rs(nx.w-nt)} WRP to ${Lk(nx.w)}`:"<br>🏆 Top level reached"}`}
+function share(rl,p,biz,r,top){
+ const t=`🔥 HIGH OCTANE OCTOBER\n\n👤 Role: ${rl}\n📦 Plan: ${p[0]}\n💰 Business: ${Rs(biz)}\n⚡ WRP Credit: ${Rs(r.tot)}\n\n🏆 Qualification: ${top?Lk(top.w)+" Slab":"Not yet"}\n🎁 Reward: ${top?top.r:"–"}\n\n🎯 Next Target: ${r.nx?Rs(r.nx.w):"Top level"}\n📉 Shortfall: ${r.nx?Rs(r.sh)+" WRP":"None"}\n\nKeep Selling. Keep Winning! 🔥`;
+ window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank")}
+function boom(){
+ const c=$("cf"),x=c.getContext("2d");c.width=innerWidth;c.height=innerHeight;
+ const cols=["#f5c451","#ffe08a","#fff","#3ddc97","#b8851f"];
+ const ps=Array.from({length:120},()=>({x:innerWidth/2,y:innerHeight*.35,vx:(Math.random()-.5)*14,vy:-Math.random()*13-3,s:Math.random()*6+3,c:cols[Math.random()*5|0],r:Math.random()*6}));
+ let f=0;(function t(){x.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.33;p.r+=.2;x.fillStyle=p.c;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});if(++f<150)requestAnimationFrame(t);else x.clearRect(0,0,c.width,c.height)})()}
+// ===== wire up =====
+$("pl").innerHTML=MASTER.products.map(p=>`<option value="${p[0]}">`).join("");
+document.querySelectorAll("#ct button").forEach(b=>b.onclick=()=>{S.c=b.dataset.c;document.querySelectorAll("#ct button").forEach(x=>x.classList.toggle("on",x==b));render()});
+document.querySelectorAll("#en button").forEach(b=>b.onclick=()=>{S.e=+b.dataset.e;document.querySelectorAll("#en button").forEach(x=>x.classList.toggle("on",x==b));render()});
+["role","vint","plan","biz","rid","rapi","rape"].forEach(i=>{const e=$(i);if(e){e.addEventListener("input",render);e.addEventListener("change",render)}});
+$("chg").onclick=()=>{$("plan").value="";$("plan").focus();render()};
+render();
+</script></body></html>
